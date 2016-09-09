@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<msg-root>
+	<err>
+		<msg id="ErrNoUser">登陆的用户：%user不存在</msg>
+		<msg id="ErrWrongPwd">用户密码错误</msg>
+	</err>
+</msg-root>

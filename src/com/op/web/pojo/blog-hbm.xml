@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.op.web.pojo">
+    <class name="Blog" table="blog">
+        <id name="idx" column="idx" >
+        	<generator class="native"/>
+        </id>
+        <property name="ttl" column="title" />
+        <property name="pbc" column="public" />
+        <property name="nam" column="name" />
+        <property name="cts" column="contents" />
+    </class>
+</hibernate-mapping>

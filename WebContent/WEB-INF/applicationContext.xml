@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-aop-3.0.xsd">
+	
+	<bean id="hbntFactory" class="com.op.web.dao.HbntFactory"></bean>
+	<bean id="user" class="com.op.web.pojo.User"></bean>
+	<bean id="temp" class="com.op.web.pojo.Temp"></bean>
+	<bean id="userStat" class="com.op.web.pojo.UserState"></bean>
+	<bean id="blog" class="com.op.web.pojo.Blog"></bean>
+	
+	<bean id="userDao" class="com.op.web.dao.UserDao">
+		<property name="hf" ref="hbntFactory"></property>
+	</bean>
+	<bean id="blogDao" class="com.op.web.dao.BlogDao">
+		<property name="hf" ref="hbntFactory"></property>
+		<property name="blg" ref="blog"></property>
+	</bean>
+	<bean id="usrSttDao" class="com.op.web.dao.UsrSttDao">
+		<property name="hf" ref="hbntFactory"></property>
+	</bean>
+	<bean id="roleDao" class="com.op.web.dao.RoleDao">
+		<property name="hf" ref="hbntFactory"></property>
+	</bean>
+	<bean id="tempDao" class="com.op.web.dao.TempDao">
+		<property name="hf" ref="hbntFactory"></property>
+		<property name="tmp" ref="temp"></property>
+	</bean>
+	
+	<bean id="lgnInitAction" class="com.op.web.action.LgnInit" scope="prototype">
+		<property name="td" ref="tempDao"></property>
+	</bean>
+	<bean id="loginAction" class="com.op.web.action.Login" scope="prototype">
+		<property name="ud" ref="userDao"></property>
+		<property name="usd" ref="usrSttDao"></property>
+		<property name="td" ref="tempDao"></property>
+		<property name="us" ref="userStat"></property>
+	</bean>
+	<bean id="blogAction" class="com.op.web.action.Blog" scope="prototype">
+		<property name="bd" ref="blogDao"></property>
+		<property name="ud" ref="userDao"></property>
+		<property name="usd" ref="usrSttDao"></property>
+	</bean>
+	<bean id="regInitAction" class="com.op.web.action.RegInit" scope="prototype">
+		<property name="rd" ref="roleDao"></property>
+	</bean>
+	<bean id="registerAction" class="com.op.web.action.Register" scope="prototype">
+		<property name="ud" ref="userDao"></property>
+		<property name="usr" ref="user"></property>
+		<property name="td" ref="tempDao"></property>
+		<property name="usd" ref="usrSttDao"></property>
+		<property name="ust" ref="userStat"></property>
+	</bean>
+	<bean id="logoutAction" class="com.op.web.action.Logout" scope="prototype">
+		<property name="usd" ref="usrSttDao"></property>
+		<property name="us" ref="userStat"></property>
+	</bean>
+	<bean id="addBlgAction" class="com.op.web.action.AddBlog" scope="prototype">
+		<property name="bd" ref="blogDao"></property>
+		<property name="blg" ref="blog"></property>
+	</bean>
+	<bean id="delBlgAction" class="com.op.web.action.DelBlog" scope="prototype">
+		<property name="bd" ref="blogDao"></property>
+	</bean>
+
+	<bean id="errMsgTbl" class="java.util.HashMap"></bean>
+	<bean id="errMsgMgr" class="com.op.web.mgr.ErrMsgMgr">
+		<property name="msgTbl" ref="errMsgTbl"></property>
+	</bean>
+</beans>

@@ -1,0 +1,84 @@
+body
+{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
+}
+
+.form-signin
+{
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin .form-control
+{
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+		 -moz-box-sizing: border-box;
+					box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signin .form-control:focus
+{
+	z-index: 2;
+}
+
+#inputUser
+{
+	margin-bottom: -1px;
+	border-radius: 0;
+}
+
+#inputPassword
+{
+	margin-bottom: 10px;
+	border-radius: 0;
+}
+
+.btn-norad
+{
+	border-radius: 0;
+}
+
+#inputFstPwd
+{
+	margin-bottom: -1px;
+	border-radius: 0;
+}
+
+#inputRptPwd
+{
+	margin-bottom: -1px;
+	border-radius: 0;
+}
+
+#inputMgrCode
+{
+	margin-bottom: 10px;
+	border-radius: 0;
+}
+
+.no-padding
+{
+	padding:0 !important;
+}
+
+.no-border
+{
+	border:0;
+}
+
+.dropdown-menu
+{
+	width:100%;
+}
+
+.bottom-margin-10
+{
+	margin-bottom: 10px;
+}

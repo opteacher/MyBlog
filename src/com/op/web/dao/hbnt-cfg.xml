@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+    
+    	<property name="show_sql">true</property>
+    	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.profile">mysql</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/op_blog</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+        <property name="connection.characterEncoding">UTF-8</property>
+        
+        <mapping resource="com/op/web/pojo/user-hbm.xml" />
+        <mapping resource="com/op/web/pojo/blog-hbm.xml" />
+        <mapping resource="com/op/web/pojo/usrStt-hbm.xml" />
+        <mapping resource="com/op/web/pojo/role-hbm.xml" />
+        <mapping resource="com/op/web/pojo/temp-hbm.xml" />
+        
+    </session-factory>
+</hibernate-configuration>
